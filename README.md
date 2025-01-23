@@ -15,7 +15,6 @@ Full-stack task management application with user authentication, built for techn
 - Docker 20.10+
 - Docker Compose 2.15+
 - Git 2.35+
-- Node.js 18+ (optional for local frontend development)
 
 ## Getting Started
 
@@ -24,38 +23,41 @@ Full-stack task management application with user authentication, built for techn
 git clone https://github.com/javillao/ct-candidates-app.git
 cd ct-candidates-app
 
-## 2. Environment Configuration
+
+# 2. Environment Configuration
 cp .env.example .env
 
-### Edit .env file with these REQUIRED configurations BEFORE running migrations:
-# Database Configuration
+# 3 Database Configuration (MANDATORY)
 DB_DATABASE=todo_list_db
 DB_USERNAME=todo_list_user
 DB_PASSWORD=System@123
 
-# Email Configuration (Mandatory for Password Reset)
+# Email Configuration (MANDATORY for Password Reset)
 MAIL_MAILER=smtp
 MAIL_HOST=smtp.sendgrid.net
 MAIL_PORT=587
 MAIL_USERNAME=apikey
-MAIL_PASSWORD=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
+MAIL_PASSWORD=your_sendgrid_api_key
 MAIL_ENCRYPTION=tls
-MAIL_FROM_ADDRESS=grelpitu@gmail.com
+MAIL_FROM_ADDRESS=your_email@example.com
 MAIL_FROM_NAME="${APP_NAME}"
 
-### 3. Build and Start Services
+# 4 Build and Start Containers
 docker-compose up -d --build
 
-### 4. Install Dependencies 
-# Backend dependencies
+# PHP dependencies (Laravel)
 docker-compose exec laravel.test composer install
 
-# Frontend dependencies
+# JavaScript dependencies (React)
 docker-compose exec node npm install
 
-
+# 5. Install Dependencies
 # Generate application key
 docker-compose exec laravel.test php artisan key:generate
 
-# Create database structure (RUN AFTER configuring .env)
+# 6. Application Setup
+# Run database migrations (AFTER .env configuration)
 docker-compose exec laravel.test php artisan migrate
+
+
+
