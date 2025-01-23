@@ -60,4 +60,19 @@ docker-compose exec laravel.test php artisan key:generate
 docker-compose exec laravel.test php artisan migrate
 
 
+## API Endpoints
+
+### Tasks Management
+
+| Method | Endpoint          | Description                          | Required Headers                                  |
+|--------|-------------------|--------------------------------------|---------------------------------------------------|
+| GET    | `/api/tasks`      | Get all tasks                        | `Accept: application/json`<br>`Authorization: Bearer <token>` |
+| GET    | `/api/tasks/{id}` | Get specific task by ID              | `Accept: application/json`<br>`Authorization: Bearer <token>` |
+| POST   | `/api/tasks`      | Create new task                      | `Accept: application/json`<br>`Authorization: Bearer <token>`<br>`Content-Type: application/json` |
+| PUT    | `/api/tasks/{id}` | Update existing task                 | `Accept: application/json`<br>`Authorization: Bearer <token>`<br>`Content-Type: application/json` |
+| DELETE | `/api/tasks/{id}` | Delete task by ID                    | `Accept: application/json`<br>`Authorization: Bearer <token>` |
+
+
+
+
 
