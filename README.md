@@ -39,7 +39,7 @@ MAIL_PORT=587
 MAIL_USERNAME=apikey
 MAIL_PASSWORD=your_sendgrid_api_key
 MAIL_ENCRYPTION=tls
-MAIL_FROM_ADDRESS=your_email@example.com
+MAIL_FROM_ADDRESS=grelpitu@gmail.com
 MAIL_FROM_NAME="${APP_NAME}"
 
 # 4 Build and Start Containers
